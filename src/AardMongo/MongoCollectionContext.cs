@@ -26,26 +26,19 @@ namespace AardMongo
             CollectionName = collectionName;
         }
 
-        public void Insert<TEntity>(TEntity entity)
-        {
-            var collection = GetCollection<TEntity>();
-            collection.InsertOne(entity);
-        }
+        public void Insert<TEntity>(TEntity entity) =>
+            GetCollection<TEntity>().InsertOne(entity);        
 
-        public List<TEntity> Get<TEntity>()
-        {
-            return GetCollection<TEntity>().Find(_ => true).ToList();
-        }
+        public List<TEntity> Get<TEntity>() =>
+            GetCollection<TEntity>().Find(_ => true).ToList();
+        
 
-        public List<TEntity> GetAll<TEntity>()
-        {
-            return GetCollection<TEntity>().Find(_ => true).ToList();
-        }
+        public List<TEntity> GetAll<TEntity>() 
+        => GetCollection<TEntity>().Find(_ => true).ToList();
+        
 
-        public void DropCollection()
-        {
+        public void DropCollection() =>
             GetDatabase().DropCollection(CollectionName);
-        }
 
         public IMongoCollection<TEntity> GetCollection<TEntity>()
         {
