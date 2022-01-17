@@ -4,8 +4,8 @@ namespace AardMongo
 {
     public interface IMongoDatabaseContext
     {
-        string DatabaseName { get; set; }
-        string ConnectionString { get; set; }
+        string DatabaseName { get; }
+        string ConnectionString { get; }
         IMongoClient GetClient();
         IMongoDatabase GetDatabase();
     }

@@ -4,8 +4,8 @@ namespace AardMongo
 {
     public class MongoDatabaseContext : IMongoDatabaseContext
     {
-        public string ConnectionString { get; set; }
-        public string DatabaseName { get; set; }
+        public string ConnectionString { get; init; }
+        public string DatabaseName { get; init; }
         
         public MongoDatabaseContext() { }
 
